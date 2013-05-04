@@ -65,6 +65,7 @@ public class TickHandler implements ITickHandler {
                             }
                             
                             thePlayer.cloakUrl = newCloakUrl;
+                            break;
                         } else {
                             
                             String newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/UserCape.png";
