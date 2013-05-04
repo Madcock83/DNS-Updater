@@ -27,6 +27,7 @@ public class Reference
 	    "darknetix",
 	    "tesmodderman",
 	    "darkhax",
-	    "viper283"
+	    "viper283",
+	    "Llamafaggot"
 	};
 }
