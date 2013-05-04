@@ -54,27 +54,28 @@ public class TickHandler implements ITickHandler {
                         
                         if(thePlayer.username.equalsIgnoreCase(staff)) {
                             
-//                            String newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/AdminCape.png";
-                            String newCloakUrl = "https://dl.dropboxusercontent.com/u/64763443/DNS/Cape/16x%20DNS%20Cape.png";
-                            thePlayer.cloakUrl = newCloakUrl;
+                            String newCloakUrl;
                             
-                            if (thePlayer.cloakUrl != oldCloak) {
+                            if(Reference.optiFineInstalled) {
                                 
-                                mc.renderEngine.obtainImageData("https://dl.dropboxusercontent.com/u/64763443/DNS/Cape/16x%20DNS%20Cape.png", new ImageBufferDownload());
+                                newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/AdminCape.png";
+                            } else {
+                                
+                                newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/LowAdminCape.png";
                             }
+                            
+                            thePlayer.cloakUrl = newCloakUrl;
                         } else {
                             
                             String newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/UserCape.png";
                             thePlayer.cloakUrl = newCloakUrl;
-                            
-                            if (thePlayer.cloakUrl != oldCloak) {
-                                
-                                mc.renderEngine.obtainImageData("http://www.dnstechpack.com/Downloads/capes/UserCape.png", new ImageBufferDownload());
-                            }
                         }
                     }
                     
-                    
+                    if (thePlayer.cloakUrl != oldCloak) {
+                        
+                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new ImageBufferDownload());
+                    }
                 }
             }
         }

@@ -15,6 +15,7 @@ public class Reference
 	public static String updaterName;
 	public static String outputColour;
 	public static String colour;
+    public static boolean optiFineInstalled;
 	
 	public static final String[] staff = new String[] {
 	    

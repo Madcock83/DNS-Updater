@@ -42,6 +42,21 @@ public class DNSUpdater {
 		modmeta.credits = "Maintained by Darkhax, ShadowChild and Madcock83";
 		modmeta.description = "This mod lets you know when the latest DNS packs are released.";
 		
+		checkOFStaus();
+		
 		proxy.registerTickHandler();
 	}
+
+    private static void checkOFStaus() {
+
+        try {
+            
+            Class.forName("IWrUpdateListener");
+            Reference.optiFineInstalled = true;
+        } catch(Exception e) {
+            
+            System.out.println("[" + Reference.updaterName + "]" + " OptiFine Not Installed, using low res capes");
+            Reference.optiFineInstalled = false;
+        }
+    }
 }
