@@ -28,6 +28,6 @@ public class Reference
 	    "tesmodderman",
 	    "darkhax",
 	    "viper283",
-	    "Llamafaggot"
+	    "Llamafaggot" //msg from Jake: Don't laugh
 	};
 }
