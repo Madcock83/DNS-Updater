@@ -52,10 +52,12 @@ public class DNSUpdater {
         try {
             
             Class.forName("IWrUpdateListener");
+            
+            System.out.println("[" + Reference.updaterName + "]" + "OptiFine Found, Using High Res Capes!");
             Reference.optiFineInstalled = true;
         } catch(Exception e) {
             
-            System.out.println("[" + Reference.updaterName + "]" + " OptiFine Not Installed, using low res capes");
+            System.out.println("[" + Reference.updaterName + "]" + " OptiFine Not Installed, Using Low Res Capes!");
             Reference.optiFineInstalled = false;
         }
     }
