@@ -58,7 +58,8 @@ public class DNSUpdater {
             
         } catch(Exception e) {
 
-            e.printStackTrace();
+            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI not installed, defaulting to inbuilt cape handling!");
+            //e.printStackTrace();
         }
 		
 		proxy.registerTickHandler();
