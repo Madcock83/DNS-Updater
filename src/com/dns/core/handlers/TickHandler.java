@@ -2,19 +2,16 @@ package com.dns.core.handlers;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ImageBufferDownload;
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.dns.DNSUpdater;
 import com.dns.configuration.DataProxy;
 import com.dns.lib.Reference;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ITickHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.TickType;
 
 public class TickHandler implements ITickHandler {
@@ -22,7 +19,8 @@ public class TickHandler implements ITickHandler {
     private int tickCount = DataProxy.delay;
     private String label = Reference.updaterName.toUpperCase().replace(" ", "_") + "_TICKHANDLER";
     private Minecraft mc;
-
+    private boolean capeApiInstalled = Loader.isModLoaded("CapeAPI");
+    
     @Override
     public void tickStart(EnumSet<TickType> type, Object... tickData) {}
 
@@ -33,7 +31,10 @@ public class TickHandler implements ITickHandler {
 
         updater();
 
-        cape();
+        if(!capeApiInstalled) {
+            
+            cape();
+        }
     }
 
     @SuppressWarnings("rawtypes")
@@ -55,14 +56,8 @@ public class TickHandler implements ITickHandler {
                         if(thePlayer.username.equalsIgnoreCase(staff)) {
                             
                             String newCloakUrl;
-                            
-                            if(Reference.optiFineInstalled) {
                                 
-                                newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/AdminCape.png";
-                            } else {
-                                
-                                newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/LowAdminCape.png";
-                            }
+                            newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/AdminCape.png";
                             
                             thePlayer.cloakUrl = newCloakUrl;
                             break;
@@ -75,7 +70,7 @@ public class TickHandler implements ITickHandler {
                     
                     if (thePlayer.cloakUrl != oldCloak) {
                         
-                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new ImageBufferDownload());
+                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
                     }
                 }
             }
@@ -90,7 +85,7 @@ public class TickHandler implements ITickHandler {
 
                 if (tickCount == 0) {
 
-                    FMLLog.log(Level.INFO, "[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion() + ")", DNSUpdater.instance);
+                    System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion() + ")");
                     String url = VersionHandler.packURL;
                     FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version " + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
                     FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(VersionHandler.getInfo());
