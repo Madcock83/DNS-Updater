@@ -37,6 +37,10 @@ public class TickHandler implements ITickHandler {
         }
     }
 
+    /**
+     * Due a system re-write, will be using a pckate system instead.
+     */
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private void cape() {
 
