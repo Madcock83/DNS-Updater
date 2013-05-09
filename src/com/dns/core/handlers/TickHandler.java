@@ -30,17 +30,13 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-
+        
         if(!capeApiInstalled) {
             
             cape();
         }
     }
-
-    /**
-     * Due a system re-write, will be using a pckate system instead.
-     */
-    @Deprecated
+    
     @SuppressWarnings("rawtypes")
     private void cape() {
 
@@ -61,13 +57,13 @@ public class TickHandler implements ITickHandler {
                             
                             String newCloakUrl;
                                 
-                            newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/AdminCape.png";
+                            newCloakUrl = CapeHandler.getAdminCape();
                             
                             thePlayer.cloakUrl = newCloakUrl;
                             break;
                         } else {
                             
-                            String newCloakUrl = "http://www.dnstechpack.com/Downloads/capes/UserCape.png";
+                            String newCloakUrl = CapeHandler.getUserCape();
                             thePlayer.cloakUrl = newCloakUrl;
                         }
                     }

@@ -30,4 +30,8 @@ public class Reference
 	    "viper283",
 	    "Llamafaggot" //msg from Jake: Don't laugh
 	};
+	
+	public static final int VERSION_INDEX = 0;
+    public static final int ADMIN_CAPE_INDEX = 1;
+    public static final int USER_CAPE_INDEX = 2;
 }

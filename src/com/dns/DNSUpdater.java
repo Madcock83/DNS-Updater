@@ -33,6 +33,7 @@ public class DNSUpdater {
     })
     @PreInit
 	public static void preInit(FMLPreInitializationEvent event) {
+	    
 		Options.createConfig(event);
 		VersionHandler.setType(Reference.type);
 		LogHelper.init();
@@ -44,10 +45,8 @@ public class DNSUpdater {
 		event.getModMetadata().credits = "Maintained by Darkhax, ShadowChild and Madcock83";
 		event.getModMetadata().description = "This mod lets you know when the latest DNS packs are released.";
 		
-		/*CapeAPI.addCape("DNS User!", "http://www.dnstechpack.com/Downloads/capes/UserCape.png");
-		CapeAPI.addAdminCape("DNS Staff!", "http://www.dnstechpack.com/Downloads/capes/AdminCape.png", Reference.staff);*/
-		
 		try {
+		    
             Class CapeAPI = Class.forName("shadowchild.mod.capeapi.api.CapeAPI");
             
             Method addCape = CapeAPI.getMethod("addCape", String.class, String.class);
@@ -55,11 +54,9 @@ public class DNSUpdater {
             
             addCape.invoke(null, "DNS User!", "http://www.dnstechpack.com/Downloads/capes/UserCape.png");
             addAdminCape.invoke(null, "DNS Staff!", "http://www.dnstechpack.com/Downloads/capes/AdminCape.png", Reference.staff);
-            
         } catch(Exception e) {
 
             System.out.println("[" + Reference.updaterName + "] " + "CapeAPI not installed, defaulting to inbuilt cape handling!");
-            //e.printStackTrace();
         }
 		
 		proxy.registerTickHandler();

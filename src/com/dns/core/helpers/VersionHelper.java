@@ -22,7 +22,7 @@ public class VersionHelper {
 	}
 	
 	public static String[] resolveLocalVersion() {
-	    return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/DNSVersion"));
+	    return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"));
 	}
 	
 	public static String URLToString(URL oldPath) {

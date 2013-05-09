@@ -15,7 +15,7 @@ public class FileHelper
 		try
 		{
 			BufferedReader fileReader = new BufferedReader(new InputStreamReader(file));
-			
+			   
 			content = fileReader.readLine().split(";");
 		}
 		catch (IOException e)
