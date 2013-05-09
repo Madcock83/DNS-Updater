@@ -54,9 +54,11 @@ public class DNSUpdater {
             
             addCape.invoke(null, "DNS User!", "http://www.dnstechpack.com/Downloads/capes/UserCape.png");
             addAdminCape.invoke(null, "DNS Staff!", "http://www.dnstechpack.com/Downloads/capes/AdminCape.png", Reference.staff);
+            
+            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Installed, Using That System Instead!");
         } catch(Exception e) {
 
-            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI not installed, defaulting to inbuilt cape handling!");
+            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Not Installed, Defaulting To Own Cape Handling!");
         }
 		
 		proxy.registerTickHandler();
