@@ -1,21 +1,18 @@
 package com.dns.configuration;
 
+import java.io.File;
+
 import net.minecraftforge.common.Configuration;
 
 import com.dns.lib.Reference;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-public class Options{
-    
-	public Options(FMLPreInitializationEvent event){
-	    
-	}
+public class Options {
 
 	public static void createConfig(FMLPreInitializationEvent event) {
 	    
-//		System.out.println(Reference.modName + "Configuration Detected!");
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+		Configuration config = new Configuration(new File(event.getModConfigurationDirectory() + "Updater.cfg"));
 		
 		try {
 		    config.load();
@@ -33,6 +30,5 @@ public class Options{
 		    
 		    config.save();
 		}
-//		System.out.println(Reference.modID + "Config Loaded!");
 	}
 }
