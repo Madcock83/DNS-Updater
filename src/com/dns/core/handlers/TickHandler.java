@@ -20,9 +20,11 @@ public class TickHandler implements ITickHandler {
     private String label = Reference.updaterName.toUpperCase().replace(" ", "_") + "_TICKHANDLER";
     private Minecraft mc;
     private boolean capeApiInstalled = Loader.isModLoaded("CapeAPI");
-    
+
     @Override
-    public void tickStart(EnumSet<TickType> type, Object... tickData) {}
+    public void tickStart(EnumSet<TickType> type, Object... tickData) {
+
+    }
 
     @Override
     public void tickEnd(EnumSet<TickType> type, Object... tickData) {
@@ -30,13 +32,13 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-        
+
         if(!capeApiInstalled) {
-            
+
             cape();
         }
     }
-    
+
     @SuppressWarnings("rawtypes")
     private void cape() {
 
@@ -47,29 +49,29 @@ public class TickHandler implements ITickHandler {
             for(int counter = 0; counter < players.size(); counter++) {
 
                 if(players.get(counter) != null) {
-                    
-                    EntityPlayer thePlayer = (EntityPlayer)players.get(counter);
+
+                    EntityPlayer thePlayer = (EntityPlayer) players.get(counter);
                     String oldCloak = thePlayer.cloakUrl;
 
                     for(String staff : Reference.staff) {
-                        
+
                         if(thePlayer.username.equalsIgnoreCase(staff)) {
-                            
+
                             String newCloakUrl;
-                                
+
                             newCloakUrl = CapeHandler.getAdminCape();
-                            
+
                             thePlayer.cloakUrl = newCloakUrl;
                             break;
                         } else {
-                            
+
                             String newCloakUrl = CapeHandler.getUserCape();
                             thePlayer.cloakUrl = newCloakUrl;
                         }
                     }
-                    
-                    if (thePlayer.cloakUrl != oldCloak) {
-                        
+
+                    if(thePlayer.cloakUrl != oldCloak) {
+
                         mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
                     }
                 }
@@ -79,15 +81,17 @@ public class TickHandler implements ITickHandler {
 
     private void updater() {
 
-        if (!VersionHandler.isUpdated()) {
+        if(!VersionHandler.isUpdated()) {
 
-            if (FMLClientHandler.instance().getClient().thePlayer != null) {
+            if(FMLClientHandler.instance().getClient().thePlayer != null) {
 
-                if (tickCount == 0) {
+                if(tickCount == 0) {
 
-                    System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion() + ")");
+                    System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion()
+                            + ")");
                     String url = VersionHandler.packURL;
-                    FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version " + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
+                    FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version "
+                            + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
                     FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(VersionHandler.getInfo());
                     tickCount = -1;
                 } else {

@@ -4,7 +4,6 @@ import com.dns.DNSUpdater;
 import com.dns.core.helpers.FileHelper;
 import com.dns.lib.Reference;
 
-
 public class CapeHandler {
 
     public static String getAdminCape() {
