@@ -15,6 +15,7 @@ public class Options {
         Configuration config = new Configuration(new File(event.getModConfigurationDirectory() + "Updater.cfg"));
 
         try {
+
             config.load();
 
             DataProxy.versionurl = config.get(Reference.options, "URL used to check for updates", "http://www.dnstechpack.com/<path>").getString();

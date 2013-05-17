@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class FileHelper {
 
-    public static String[] retrieveString(InputStream file) {
+    public static String retrieveString(InputStream file, int index) {
 
         String[] content = null;
 
@@ -18,6 +18,6 @@ public class FileHelper {
         } catch(IOException e) {
             e.printStackTrace();
         }
-        return content;
+        return content[index];
     }
 }

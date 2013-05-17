@@ -15,15 +15,10 @@ public class Reference {
     public static String updaterName;
     public static String outputColour;
     public static String colour;
-    public static boolean optiFineInstalled;
 
     public static final String[] staff = new String[] {
 
-            "Wizard111", "Trevail69", "angrychicken83", "skully250", "vydax", "darknetix", "tesmodderman", "darkhax", "viper283", "Llamafaggot" // msg
-                                                                                                                                                // from
-                                                                                                                                                // Jake:
-                                                                                                                                                // Don't
-                                                                                                                                                // laugh
+            "Wizard111", "Trevail69", "angrychicken83", "skully250", "vydax", "darknetix", "tesmodderman", "darkhax", "viper283", "Llamafaggot" 
     };
 
     public static final int VERSION_INDEX = 0;

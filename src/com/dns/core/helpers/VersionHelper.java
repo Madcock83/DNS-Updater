@@ -4,6 +4,7 @@ import java.net.URL;
 
 import com.dns.DNSUpdater;
 import com.dns.configuration.DataProxy;
+import com.dns.lib.Reference;
 
 public class VersionHelper {
 
@@ -22,9 +23,9 @@ public class VersionHelper {
         return URLHelper.retrieveString(info);
     }
 
-    public static String[] resolveLocalVersion() {
+    public static String resolveLocalVersion() {
 
-        return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"));
+        return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), Reference.VERSION_INDEX);
     }
 
     public static String URLToString(URL oldPath) {

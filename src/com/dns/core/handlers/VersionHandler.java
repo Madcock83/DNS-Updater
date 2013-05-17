@@ -16,9 +16,9 @@ public class VersionHandler {
         remoteVersion = VersionHelper.resolveRemoteVersion(type);
         info = VersionHelper.resolveInfo(type);
 
-        String[] localVersionContent = VersionHelper.resolveLocalVersion();
-        localVersion = localVersionContent[0];
-        packURL = localVersionContent[0];
+        String localVersionContent = VersionHelper.resolveLocalVersion();
+        localVersion = localVersionContent;
+        packURL = localVersionContent;
     }
 
     public static boolean isUpdated() {
