@@ -19,7 +19,6 @@ public class TickHandler implements ITickHandler {
     private int tickCount = DataProxy.delay;
     private String label = Reference.updaterName.toUpperCase().replace(" ", "_") + "_TICKHANDLER";
     private Minecraft mc;
-    private boolean capeApiInstalled = Loader.isModLoaded("CapeAPI");
 
     @Override
     public void tickStart(EnumSet<TickType> type, Object... tickData) {
@@ -33,7 +32,7 @@ public class TickHandler implements ITickHandler {
 
         updater();
 
-        if(!capeApiInstalled) {
+        if(allowCape()) {
 
             cape();
         }
@@ -112,5 +111,10 @@ public class TickHandler implements ITickHandler {
     public String getLabel() {
 
         return label;
+    }
+    
+    private boolean allowCape() {
+        
+        return Loader.isModLoaded("CapeAPI") ? (Reference.allowCapeAPI ? false : true) : true;
     }
 }
