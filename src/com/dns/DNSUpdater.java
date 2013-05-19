@@ -28,7 +28,7 @@ public class DNSUpdater {
     public static CommonProxy proxy;
 
     @SuppressWarnings({
-            "unchecked", "rawtypes"
+        "unchecked", "rawtypes"
     })
     @PreInit
     public static void preInit(FMLPreInitializationEvent event) {
@@ -46,20 +46,23 @@ public class DNSUpdater {
         event.getModMetadata().credits = "Maintained by Darkhax, ShadowChild and Madcock83";
         event.getModMetadata().description = "This mod lets you know when the latest DNS packs are released.";
 
-        try {
+        if(Reference.allowCapeAPI) {
+            
+            try {
 
-            Class CapeAPI = Class.forName("shadowchild.mod.capeapi.api.CapeAPI");
+                Class CapeAPI = Class.forName("shadowchild.mod.capeapi.api.CapeAPI");
 
-            Method addCape = CapeAPI.getMethod("addCape", String.class, String.class);
-            Method addAdminCape = CapeAPI.getMethod("addAdminCape", String.class, String.class, String[].class);
+                Method addCape = CapeAPI.getMethod("addCape", String.class, String.class);
+                Method addAdminCape = CapeAPI.getMethod("addAdminCape", String.class, String.class, String[].class);
 
-            addCape.invoke(null, "DNS User!", "http://www.dnstechpack.com/Downloads/capes/UserCape.png");
-            addAdminCape.invoke(null, "DNS Staff!", "http://www.dnstechpack.com/Downloads/capes/AdminCape.png", Reference.staff);
+                addCape.invoke(null, "DNS User!", "http://www.dnstechpack.com/Downloads/capes/UserCape.png");
+                addAdminCape.invoke(null, "DNS Staff!", "http://www.dnstechpack.com/Downloads/capes/AdminCape.png", Reference.staff);
 
-            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Installed, Using That System Instead!");
-        } catch(Exception e) {
+                System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Installed, Using That System Instead!");
+            } catch(Exception e) {
 
-            System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Not Installed, Defaulting To Own Cape Handling!");
+                System.out.println("[" + Reference.updaterName + "] " + "CapeAPI Not Installed, Defaulting To Own Cape Handling!");
+            }
         }
 
         proxy.registerTickHandler();

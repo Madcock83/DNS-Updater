@@ -15,6 +15,8 @@ public class Reference {
     public static String updaterName;
     public static String outputColour;
     public static String colour;
+    
+    public static boolean allowCapeAPI;
 
     public static final String[] staff = new String[] {
 

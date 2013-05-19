@@ -24,6 +24,7 @@ public class Options {
 
             Reference.updaterName = config.get(Reference.options, "Name of the modpack the updater will use", "DNS Techpack").getString();
             Reference.outputColour = config.get(Reference.options, "The colout the updater will use", "green").getString();
+            Reference.allowCapeAPI = config.get(Reference.options, "Do you want to enable CapeAPI support", false).getBoolean(false);
         } catch(Exception e) {
 
             e.printStackTrace();
