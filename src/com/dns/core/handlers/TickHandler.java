@@ -11,7 +11,6 @@ import com.dns.lib.Reference;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.TickType;
 
 public class TickHandler implements ITickHandler {
@@ -31,10 +30,10 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-
+        
         if(allowCape()) {
-
-            cape();
+        
+        	cape();
         }
     }
 
@@ -115,6 +114,6 @@ public class TickHandler implements ITickHandler {
     
     private boolean allowCape() {
         
-        return Loader.isModLoaded("CapeAPI") ? (Reference.allowCapeAPI ? false : true) : true;
+        return Reference.allowCape;
     }
 }

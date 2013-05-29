@@ -1,5 +1,10 @@
 package com.dns.lib;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.entity.player.EntityPlayer;
+
 import com.dns.configuration.DataProxy;
 
 public class Reference {
@@ -16,7 +21,7 @@ public class Reference {
     public static String outputColour;
     public static String colour;
     
-    public static boolean allowCapeAPI;
+    public static boolean allowCape;
 
     public static final String[] staff = new String[] {
 
@@ -26,4 +31,6 @@ public class Reference {
     public static final int VERSION_INDEX = 0;
     public static final int ADMIN_CAPE_INDEX = 1;
     public static final int USER_CAPE_INDEX = 2;
+    
+    public static Map<EntityPlayer, String> capeMap = new HashMap<EntityPlayer, String>();
 }
