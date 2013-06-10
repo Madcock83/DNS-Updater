@@ -11,7 +11,7 @@ public class Reference {
 
     public static final String modID = "DNS_Updater";
     public static final String modName = "DNS Updater";
-    public static final String version = "2.7.0";
+    public static final String version = "4.03";
     public static final String client = "com.dns.core.proxy.ClientProxy";
     public static final String common = "com.dns.core.proxy.CommonProxy";
     public static final String type = "@TYPE@";
