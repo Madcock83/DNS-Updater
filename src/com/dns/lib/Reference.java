@@ -1,11 +1,9 @@
 package com.dns.lib;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import net.minecraft.entity.player.EntityPlayer;
+import java.util.List;
 
 import com.dns.configuration.DataProxy;
+import com.dns.core.helpers.URLHelper;
 
 public class Reference {
 
@@ -23,14 +21,15 @@ public class Reference {
     
     public static boolean allowCape;
 
-    public static final String[] staff = new String[] {
+   /* public static final String[] staff = new String[] {
 
             "Wizard111", "Trevail69", "angrychicken83", "skully250", "vydax", "darknetix", "tesmodderman", "darkhax", "viper283", "Llamafaggot" 
-    };
+    };*/
+    
+    // TODO: use correct url
+    public static List<String> staffList = URLHelper.retrieveStringList("http://dnstechpack.com/");
 
     public static final int VERSION_INDEX = 0;
     public static final int ADMIN_CAPE_INDEX = 1;
     public static final int USER_CAPE_INDEX = 2;
-    
-    public static Map<EntityPlayer, String> capeMap = new HashMap<EntityPlayer, String>();
 }

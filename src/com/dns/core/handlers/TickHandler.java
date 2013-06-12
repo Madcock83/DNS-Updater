@@ -50,8 +50,18 @@ public class TickHandler implements ITickHandler {
 
                     EntityPlayer thePlayer = (EntityPlayer) players.get(counter);
                     String oldCloak = thePlayer.cloakUrl;
+                    String newCloak;
 
-                    for(String staff : Reference.staff) {
+                    if(Reference.staffList.contains(thePlayer.username)) {
+                    	
+                    	newCloak = CapeHandler.getAdminCape();
+                    } else {
+                    	
+                    	newCloak = CapeHandler.getUserCape();
+                    }
+                    
+                    thePlayer.cloakUrl = newCloak;
+                    /*for(String staff : Reference.staff) {
 
                         if(thePlayer.username.equalsIgnoreCase(staff)) {
 
@@ -66,7 +76,7 @@ public class TickHandler implements ITickHandler {
                             String newCloakUrl = CapeHandler.getUserCape();
                             thePlayer.cloakUrl = newCloakUrl;
                         }
-                    }
+                    }*/
 
                     if(thePlayer.cloakUrl != oldCloak) {
 
