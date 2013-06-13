@@ -27,6 +27,7 @@ public class Reference {
     };*/
     
     // TODO: use correct url
+    // TODO: get from the ModPack file
     public static List<String> staffList = URLHelper.retrieveStringList("http://dnstechpack.com/");
 
     public static final int VERSION_INDEX = 0;
