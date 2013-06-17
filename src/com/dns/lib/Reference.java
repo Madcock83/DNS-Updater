@@ -28,9 +28,10 @@ public class Reference {
     
     // TODO: use correct url
     // TODO: get from the ModPack file
-    public static List<String> staffList = URLHelper.retrieveStringList("http://dnstechpack.com/");
+    public static List<String> staffList = URLHelper.retrieveStringList(FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), STAFF_LIST_INDEX));
 
     public static final int VERSION_INDEX = 0;
     public static final int ADMIN_CAPE_INDEX = 1;
     public static final int USER_CAPE_INDEX = 2;
+    public static final int STAFF_LIST_INDEX = 3;
 }
