@@ -52,7 +52,7 @@ public class TickHandler implements ITickHandler {
                     String oldCloak = thePlayer.cloakUrl;
                     String newCloak;
 
-                    if(Reference.staffList.contains(thePlayer.username)) {
+                    if(Reference.staffList.contains(thePlayer.username.toLowerCase())) {
                     	
                     	newCloak = CapeHandler.getAdminCape();
                     } else {
@@ -78,7 +78,7 @@ public class TickHandler implements ITickHandler {
                         }
                     }*/
 
-                    if(thePlayer.cloakUrl != oldCloak) {
+                    if(thePlayer.cloakUrl != oldCloak && !Reference.isOffline) {
 
                         mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
                     }

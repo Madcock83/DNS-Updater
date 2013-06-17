@@ -36,7 +36,7 @@ public class URLHelper {
     		BufferedReader urlReader = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
     		
     		String line;
-    		while((line = urlReader.readLine()) != null) {
+    		while((line = urlReader.readLine().toLowerCase()) != null) {
     			
     			ret.add(line);
     		}

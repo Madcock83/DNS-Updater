@@ -1,6 +1,8 @@
 package com.dns;
 
+import java.net.URL;
 import java.util.Arrays;
+import java.util.logging.Level;
 
 import com.dns.configuration.Options;
 import com.dns.core.handlers.ColourHandler;
@@ -27,13 +29,14 @@ public class DNSUpdater {
     public static CommonProxy proxy;
 
     @PreInit
-    public static void preInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
 
         Options.createConfig(event);
         VersionHandler.setType(Reference.type);
         LogHelper.init();
         VersionHandler.init();
         ColourHandler.init();
+        checkConnectionStatus();
 
         event.getModMetadata().authorList = Arrays.asList(new String[] {
                 "Darkhax", "MCWizard111", "ShadowChild", "Madcock83"
@@ -43,5 +46,25 @@ public class DNSUpdater {
         event.getModMetadata().description = "This mod lets you know when the latest DNS packs are released.";
 
         proxy.registerTickHandler();
+        
+        //System.out.println(DNSUpdater.class.getResource("/textures/dns/UserCape.png").toString());
+    }
+    
+    private void checkConnectionStatus() {
+    	
+    	URL url;
+    	
+    	try {
+    		
+    		url = new URL("http://dnstechpack.com");
+    		url.openConnection();
+    		Reference.isOffline = false;
+    		
+    		LogHelper.log(Level.INFO, "Connection Established!");
+    	} catch(Exception e) {
+    		
+    		LogHelper.log(Level.INFO, "You Are Offline! Using Fallback");
+    		Reference.isOffline = true;
+    	}
     }
 }

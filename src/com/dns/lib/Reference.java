@@ -2,7 +2,9 @@ package com.dns.lib;
 
 import java.util.List;
 
+import com.dns.DNSUpdater;
 import com.dns.configuration.DataProxy;
+import com.dns.core.helpers.FileHelper;
 import com.dns.core.helpers.URLHelper;
 
 public class Reference {
@@ -20,18 +22,12 @@ public class Reference {
     public static String colour;
     
     public static boolean allowCape;
-
-   /* public static final String[] staff = new String[] {
-
-            "Wizard111", "Trevail69", "angrychicken83", "skully250", "vydax", "darknetix", "tesmodderman", "darkhax", "viper283", "Llamafaggot" 
-    };*/
+    public static boolean isOffline = false;
     
-    // TODO: use correct url
-    // TODO: get from the ModPack file
-    public static List<String> staffList = URLHelper.retrieveStringList(FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), STAFF_LIST_INDEX));
-
     public static final int VERSION_INDEX = 0;
     public static final int ADMIN_CAPE_INDEX = 1;
     public static final int USER_CAPE_INDEX = 2;
     public static final int STAFF_LIST_INDEX = 3;
+
+    public static List<String> staffList = URLHelper.retrieveStringList(FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), STAFF_LIST_INDEX));
 }
