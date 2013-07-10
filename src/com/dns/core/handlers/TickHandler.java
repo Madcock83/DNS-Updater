@@ -40,51 +40,53 @@ public class TickHandler implements ITickHandler {
     @SuppressWarnings("rawtypes")
     private void cape() {
 
-        if(mc.theWorld != null && mc.theWorld.playerEntities.size() > 0) {
-
-            List players = mc.theWorld.playerEntities;
-
-            for(int counter = 0; counter < players.size(); counter++) {
-
-                if(players.get(counter) != null) {
-
-                    EntityPlayer thePlayer = (EntityPlayer) players.get(counter);
-                    String oldCloak = thePlayer.cloakUrl;
-                    String newCloak;
-
-                    if(Reference.staffList.contains(thePlayer.username.toLowerCase())) {
-                    	
-                    	newCloak = CapeHandler.getAdminCape();
-                    } else {
-                    	
-                    	newCloak = CapeHandler.getUserCape();
-                    }
-                    
-                    thePlayer.cloakUrl = newCloak;
-                    /*for(String staff : Reference.staff) {
-
-                        if(thePlayer.username.equalsIgnoreCase(staff)) {
-
-                            String newCloakUrl;
-
-                            newCloakUrl = CapeHandler.getAdminCape();
-
-                            thePlayer.cloakUrl = newCloakUrl;
-                            break;
-                        } else {
-
-                            String newCloakUrl = CapeHandler.getUserCape();
-                            thePlayer.cloakUrl = newCloakUrl;
-                        }
-                    }*/
-
-                    if(thePlayer.cloakUrl != oldCloak && !Reference.isOffline) {
-
-                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
-                    }
-                }
-            }
-        }
+    	// Needs Re-writing
+    	
+//        if(mc.theWorld != null && mc.theWorld.playerEntities.size() > 0) {
+//
+//            List players = mc.theWorld.playerEntities;
+//
+//            for(int counter = 0; counter < players.size(); counter++) {
+//
+//                if(players.get(counter) != null) {
+//
+//                    EntityPlayer thePlayer = (EntityPlayer) players.get(counter);
+//                    String oldCloak = thePlayer.cloakUrl;
+//                    String newCloak;
+//
+//                    if(Reference.staffList.contains(thePlayer.username.toLowerCase())) {
+//                    	
+//                    	newCloak = CapeHandler.getAdminCape();
+//                    } else {
+//                    	
+//                    	newCloak = CapeHandler.getUserCape();
+//                    }
+//                    
+//                    thePlayer.cloakUrl = newCloak;
+//                    /*for(String staff : Reference.staff) {
+//
+//                        if(thePlayer.username.equalsIgnoreCase(staff)) {
+//
+//                            String newCloakUrl;
+//
+//                            newCloakUrl = CapeHandler.getAdminCape();
+//
+//                            thePlayer.cloakUrl = newCloakUrl;
+//                            break;
+//                        } else {
+//
+//                            String newCloakUrl = CapeHandler.getUserCape();
+//                            thePlayer.cloakUrl = newCloakUrl;
+//                        }
+//                    }*/
+//
+//                    if(thePlayer.cloakUrl != oldCloak && !Reference.isOffline) {
+//
+//                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
+//                    }
+//                }
+//            }
+//        }
     }
 
     private void updater() {
@@ -98,9 +100,9 @@ public class TickHandler implements ITickHandler {
                     System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion()
                             + ")");
                     String url = VersionHandler.packURL;
-                    FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version "
+                    FMLClientHandler.instance().getClient().thePlayer.addChatMessage(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version "
                             + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
-                    FMLClientHandler.instance().getClient().thePlayer.sendChatToPlayer(VersionHandler.getInfo());
+                    FMLClientHandler.instance().getClient().thePlayer.addChatMessage(VersionHandler.getInfo());
                     tickCount = -1;
                 } else {
 
