@@ -39,7 +39,7 @@ public class TickHandler implements ITickHandler {
 
     @SuppressWarnings("rawtypes")
     private void cape() {
-
+    	
     	// Needs Re-writing
     	
 //        if(mc.theWorld != null && mc.theWorld.playerEntities.size() > 0) {
@@ -100,9 +100,8 @@ public class TickHandler implements ITickHandler {
                     System.out.println("[" + Reference.updaterName + "] There is a new update out: " + VersionHandler.getRemoteVersion() + " (Current Version: " + VersionHandler.getLocalVersion()
                             + ")");
                     String url = VersionHandler.packURL;
-                    FMLClientHandler.instance().getClient().thePlayer.addChatMessage(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version "
-                            + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
-                    FMLClientHandler.instance().getClient().thePlayer.addChatMessage(VersionHandler.getInfo());
+                    ChatHandler.sendChat(Reference.colour + "[" + Reference.updaterName + Reference.colour + "] Version " + VersionHandler.getRemoteVersion() + " is available now. You have " + url);
+                    ChatHandler.sendChat(VersionHandler.getInfo());
                     tickCount = -1;
                 } else {
 
