@@ -5,6 +5,9 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.ThreadDownloadImageData;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 import com.dns.configuration.DataProxy;
@@ -55,6 +58,23 @@ public class TickHandler implements ITickHandler {
     			if(players.get(i) != null) {
     				
     				player = players.get(i);
+    				
+    				if(Reference.staffList.contains(player.username)) {
+    					
+    					// Give Admin Cape
+    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
+    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getAdminCape());
+    					
+    					player.field_110315_c = capeThread;
+    					
+    				} else {
+    					
+    					// Give User cape
+    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
+    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getUserCape());
+    					
+    					player.field_110315_c = capeThread;
+    				}
     			}
     		}
     	}
