@@ -4,7 +4,8 @@ import java.util.EnumSet;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.world.World;
 
 import com.dns.configuration.DataProxy;
 import com.dns.lib.Reference;
@@ -41,6 +42,22 @@ public class TickHandler implements ITickHandler {
     private void cape() {
     	
     	// Needs Re-writing
+    	
+    	World world = mc.theWorld;
+    	AbstractClientPlayer player = null;
+    	
+    	if(world != null && world.playerEntities.size() > 0) {
+    		
+    		List<AbstractClientPlayer> players = world.playerEntities;
+    		
+    		for(int i = 0; i < world.playerEntities.size(); i++) {
+    			
+    			if(players.get(i) != null) {
+    				
+    				player = players.get(i);
+    			}
+    		}
+    	}
     	
 //        if(mc.theWorld != null && mc.theWorld.playerEntities.size() > 0) {
 //
