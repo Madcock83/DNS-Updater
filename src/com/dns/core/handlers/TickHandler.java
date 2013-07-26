@@ -62,18 +62,17 @@ public class TickHandler implements ITickHandler {
     				if(Reference.staffList.contains(player.username)) {
     					
     					// Give Admin Cape
-    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
-    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getAdminCape());
+//    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
+//    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getAdminCape());
     					
-    					player.field_110315_c = capeThread;
-    					
+//    					player.field_110315_c = capeThread;
     				} else {
     					
     					// Give User cape
-    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
-    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getUserCape());
+//    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
+//    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getUserCape());
     					
-    					player.field_110315_c = capeThread;
+//    					player.field_110315_c = capeThread;
     				}
     			}
     		}
