@@ -59,7 +59,7 @@ public class TickHandler implements ITickHandler {
     				
     				player = players.get(i);
     				
-    				if(Reference.staffList.contains(player.username)) {
+    				if(Reference.staffList.contains(player.username.toLowerCase())) {
     					
     					// Give Admin Cape
 //    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
