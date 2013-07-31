@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import com.dns.lib.Reference;
 
@@ -36,9 +37,9 @@ public class URLHelper {
     		BufferedReader urlReader = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
     		
     		String line;
-    		while((line = urlReader.readLine().toLowerCase()) != null) {
+    		while((line = urlReader.readLine()) != null) {
     			
-    			ret.add(line);
+    			ret.add(line.toLowerCase(Locale.ENGLISH));
     		}
     		
     		return ret;
