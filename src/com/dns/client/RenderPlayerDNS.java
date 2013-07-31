@@ -25,7 +25,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 import org.lwjgl.opengl.GL11;
 
-import com.dns.core.handlers.CapeHandler;
 import com.dns.lib.Reference;
 
 public class RenderPlayerDNS extends RenderPlayer {
