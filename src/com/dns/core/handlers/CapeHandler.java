@@ -18,37 +18,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class CapeHandler {
 
-    public static String getAdminCape() {
-
-    	if(Reference.isOffline) {
-    		
-    		return DNSUpdater.class.getResource("/textures/dns/AdminCape.png").toString();
-    	}
-    	
-        return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), Reference.ADMIN_CAPE_INDEX);
+    public static ResourceLocation getAdminCape() {
+        
+    	return new ResourceLocation("dns", "textures/misc/AdminCape.png");
     }
 
-    public static String getUserCape() {
-
-    	if(Reference.isOffline) {
-    		
-    		return DNSUpdater.class.getResource("/textures/dns/UserCape.png").toString();
-    	}
-    	
-        return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), Reference.USER_CAPE_INDEX);
+    public static ResourceLocation getUserCape() {
+        
+    	return new ResourceLocation("dns", "textures/misc/UserCape.png");
     }
-
-	public static ThreadDownloadImageData getDownloadThread(ResourceLocation resourceLocation, String url) {
-
-		TextureManager texturemanager = Minecraft.getMinecraft().func_110434_K();
-        Object object = texturemanager.func_110581_b(resourceLocation);
-
-        if (object == null)
-        {
-            object = new ThreadDownloadImageData(url, resourceLocation, new CapeDownloadHandler());
-            texturemanager.func_110579_a(resourceLocation, (TextureObject)object);
-        }
-
-        return (ThreadDownloadImageData)object;
-	}
 }

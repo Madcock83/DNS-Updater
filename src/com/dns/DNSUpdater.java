@@ -34,7 +34,6 @@ public class DNSUpdater {
         LogHelper.init();
         VersionHandler.init();
         ColourHandler.init();
-        checkConnectionStatus();
 
         event.getModMetadata().authorList = Arrays.asList(new String[] {
                 "Darkhax", "MCWizard111", "ShadowChild", "Madcock83"
@@ -46,23 +45,5 @@ public class DNSUpdater {
         proxy.registerTickHandler();
         
         //System.out.println(DNSUpdater.class.getResource("/textures/dns/UserCape.png").toString());
-    }
-    
-    private void checkConnectionStatus() {
-    	
-    	URL url;
-    	
-    	try {
-    		
-    		url = new URL("http://dnstechpack.com");
-    		url.openConnection();
-    		Reference.isOffline = false;
-    		
-    		LogHelper.log(Level.INFO, "Connection Established!");
-    	} catch(Exception e) {
-    		
-    		LogHelper.log(Level.INFO, "You Are Offline! Using Fallback");
-    		Reference.isOffline = true;
-    	}
     }
 }

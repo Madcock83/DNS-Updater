@@ -34,95 +34,6 @@ public class TickHandler implements ITickHandler {
         mc = Minecraft.getMinecraft();
 
         updater();
-        
-        if(allowCape()) {
-        
-        	cape();
-        }
-    }
-
-    @SuppressWarnings("rawtypes")
-    private void cape() {
-    	
-    	// Needs Re-writing
-    	
-    	World world = mc.theWorld;
-    	AbstractClientPlayer player = null;
-    	
-    	if(world != null && world.playerEntities.size() > 0) {
-    		
-    		List<AbstractClientPlayer> players = world.playerEntities;
-    		
-    		for(int i = 0; i < world.playerEntities.size(); i++) {
-    			
-    			if(players.get(i) != null) {
-    				
-    				player = players.get(i);
-    				
-    				if(Reference.staffList.contains(player.username.toLowerCase())) {
-    					
-    					// Give Admin Cape
-//    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
-//    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getAdminCape());
-    					
-//    					player.field_110315_c = capeThread;
-    				} else {
-    					
-    					// Give User cape
-//    					ResourceLocation capeRL = new ResourceLocation("dnscapes/" + StringUtils.stripControlCodes(player.username));
-//    					ThreadDownloadImageData capeThread = CapeHandler.getDownloadThread(capeRL, CapeHandler.getUserCape());
-    					
-//    					player.field_110315_c = capeThread;
-    				}
-    			}
-    		}
-    	}
-    	
-//        if(mc.theWorld != null && mc.theWorld.playerEntities.size() > 0) {
-//
-//            List players = mc.theWorld.playerEntities;
-//
-//            for(int counter = 0; counter < players.size(); counter++) {
-//
-//                if(players.get(counter) != null) {
-//
-//                    EntityPlayer thePlayer = (EntityPlayer) players.get(counter);
-//                    String oldCloak = thePlayer.cloakUrl;
-//                    String newCloak;
-//
-//                    if(Reference.staffList.contains(thePlayer.username.toLowerCase())) {
-//                    	
-//                    	newCloak = CapeHandler.getAdminCape();
-//                    } else {
-//                    	
-//                    	newCloak = CapeHandler.getUserCape();
-//                    }
-//                    
-//                    thePlayer.cloakUrl = newCloak;
-//                    /*for(String staff : Reference.staff) {
-//
-//                        if(thePlayer.username.equalsIgnoreCase(staff)) {
-//
-//                            String newCloakUrl;
-//
-//                            newCloakUrl = CapeHandler.getAdminCape();
-//
-//                            thePlayer.cloakUrl = newCloakUrl;
-//                            break;
-//                        } else {
-//
-//                            String newCloakUrl = CapeHandler.getUserCape();
-//                            thePlayer.cloakUrl = newCloakUrl;
-//                        }
-//                    }*/
-//
-//                    if(thePlayer.cloakUrl != oldCloak && !Reference.isOffline) {
-//
-//                        mc.renderEngine.obtainImageData(thePlayer.cloakUrl, new CapeDownloadHandler());
-//                    }
-//                }
-//            }
-//        }
     }
 
     private void updater() {
@@ -157,10 +68,5 @@ public class TickHandler implements ITickHandler {
     public String getLabel() {
 
         return label;
-    }
-    
-    private boolean allowCape() {
-        
-        return Reference.allowCape;
     }
 }

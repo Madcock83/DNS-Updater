@@ -27,12 +27,4 @@ public class VersionHelper {
 
         return FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), Reference.VERSION_INDEX);
     }
-
-    public static String URLToString(URL oldPath) {
-
-        String newPath = oldPath.getPath();
-        newPath = newPath.replaceAll("%20", " ");
-        newPath = newPath.replaceAll("file:", "");
-        return newPath;
-    }
 }

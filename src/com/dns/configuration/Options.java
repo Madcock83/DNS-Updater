@@ -30,7 +30,8 @@ public class Options {
             e.printStackTrace();
         } finally {
 
-            config.save();
+            if(config.hasChanged())
+                config.save();
         }
     }
 }

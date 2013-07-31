@@ -21,13 +21,11 @@ public class Reference {
     public static String outputColour;
     public static String colour;
     
-    public static boolean allowCape;
+    public static boolean allowCape = true;
     public static boolean isOffline = false;
     
     public static final int VERSION_INDEX = 0;
-    public static final int ADMIN_CAPE_INDEX = 1;
-    public static final int USER_CAPE_INDEX = 2;
-    public static final int STAFF_LIST_INDEX = 3;
+    public static final int STAFF_LIST_INDEX = 1;
 
     public static List<String> staffList = URLHelper.retrieveStringList(FileHelper.retrieveString(DNSUpdater.class.getResourceAsStream("/ModPack"), STAFF_LIST_INDEX));
 }
