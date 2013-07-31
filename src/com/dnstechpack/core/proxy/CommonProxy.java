@@ -1,4 +1,4 @@
-package com.dns.core.proxy;
+package com.dnstechpack.core.proxy;
 
 public class CommonProxy {
 

@@ -1,15 +1,13 @@
-package com.dns;
+package com.dnstechpack;
 
-import java.net.URL;
 import java.util.Arrays;
-import java.util.logging.Level;
 
-import com.dns.configuration.Options;
-import com.dns.core.handlers.ColourHandler;
-import com.dns.core.handlers.VersionHandler;
-import com.dns.core.helpers.LogHelper;
-import com.dns.core.proxy.CommonProxy;
-import com.dns.lib.Reference;
+import com.dnstechpack.configuration.Options;
+import com.dnstechpack.core.handlers.ColourHandler;
+import com.dnstechpack.core.handlers.VersionHandler;
+import com.dnstechpack.core.helpers.LogHelper;
+import com.dnstechpack.core.proxy.CommonProxy;
+import com.dnstechpack.lib.Reference;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;

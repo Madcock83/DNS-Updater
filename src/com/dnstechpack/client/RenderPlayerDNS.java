@@ -1,4 +1,4 @@
-package com.dns.client;
+package com.dnstechpack.client;
 
 import static net.minecraftforge.client.IItemRenderer.ItemRenderType.EQUIPPED;
 import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3D;
@@ -25,7 +25,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import org.lwjgl.opengl.GL11;
 
-import com.dns.lib.Reference;
+import com.dnstechpack.lib.Reference;
 
 public class RenderPlayerDNS extends RenderPlayer {
 

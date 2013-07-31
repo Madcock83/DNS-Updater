@@ -1,4 +1,4 @@
-package com.dns.enums;
+package com.dnstechpack.enums;
 
 public enum EnumColour {
 

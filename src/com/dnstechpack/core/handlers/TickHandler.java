@@ -1,17 +1,11 @@
-package com.dns.core.handlers;
+package com.dnstechpack.core.handlers;
 
 import java.util.EnumSet;
-import java.util.List;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.renderer.ThreadDownloadImageData;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StringUtils;
-import net.minecraft.world.World;
 
-import com.dns.configuration.DataProxy;
-import com.dns.lib.Reference;
+import com.dnstechpack.configuration.DataProxy;
+import com.dnstechpack.lib.Reference;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;

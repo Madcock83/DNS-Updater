@@ -1,4 +1,4 @@
-package com.dns.core.handlers;
+package com.dnstechpack.core.handlers;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.util.ChatMessageComponent;

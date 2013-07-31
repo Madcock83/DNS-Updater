@@ -1,9 +1,9 @@
-package com.dns.core.proxy;
+package com.dnstechpack.core.proxy;
 
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.dns.client.RenderPlayerDNS;
-import com.dns.core.handlers.TickHandler;
+import com.dnstechpack.client.RenderPlayerDNS;
+import com.dnstechpack.core.handlers.TickHandler;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;

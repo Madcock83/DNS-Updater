@@ -1,10 +1,8 @@
-package com.dns.core.helpers;
+package com.dnstechpack.core.helpers;
 
-import java.net.URL;
-
-import com.dns.DNSUpdater;
-import com.dns.configuration.DataProxy;
-import com.dns.lib.Reference;
+import com.dnstechpack.DNSUpdater;
+import com.dnstechpack.configuration.DataProxy;
+import com.dnstechpack.lib.Reference;
 
 public class VersionHelper {
 

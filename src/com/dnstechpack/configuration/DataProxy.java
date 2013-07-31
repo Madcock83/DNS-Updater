@@ -1,4 +1,4 @@
-package com.dns.configuration;
+package com.dnstechpack.configuration;
 
 public class DataProxy {
 

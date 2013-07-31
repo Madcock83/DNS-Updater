@@ -1,10 +1,10 @@
-package com.dns.configuration;
+package com.dnstechpack.configuration;
 
 import java.io.File;
 
 import net.minecraftforge.common.Configuration;
 
-import com.dns.lib.Reference;
+import com.dnstechpack.lib.Reference;
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 

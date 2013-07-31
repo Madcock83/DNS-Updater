@@ -1,7 +1,7 @@
-package com.dns.core.handlers;
+package com.dnstechpack.core.handlers;
 
-import com.dns.enums.EnumColour;
-import com.dns.lib.Reference;
+import com.dnstechpack.enums.EnumColour;
+import com.dnstechpack.lib.Reference;
 
 public class ColourHandler {
 
